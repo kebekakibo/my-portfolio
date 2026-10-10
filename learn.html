@@ -1,0 +1,225 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio | Web Developer</title>
+    <link rel="stylesheet" href="style.css">
+    <script> src="script.js" defer </script>
+</head>
+<body>
+
+    
+<header class="navbar">
+    <a href="#home" class="logo">MyPortfolio<span>.</span></a>
+
+    <button
+        class="menu-toggle"
+        id="menu-toggle"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="nav-menu"
+    >
+        ☰
+    </button>
+
+    <nav id="nav-menu">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <p class="greeting">HELLO, WELCOME TO MY WEBSITE</p>
+
+                <h1>I'm a <span>Web Developer</span></h1>
+
+                <p class="description">
+                    I build clean, useful and responsive websites.
+                    I'm learning every day and turning my ideas into
+                    real projects.
+                </p>
+
+                <div class="buttons">
+                    <a href="#about" class="btn primary">About Me</a>
+                    <a href="#contact" class="btn secondary">Contact Me</a>
+                </div>
+            </div>
+
+            <div class="hero-card">
+                <img src="port.jpg" alt="My profile photo" class="profile-photo">
+                <h2>Creative Developer</h2>
+                <p>Learning. Building. Improving.</p>
+            </div>
+        </section>
+
+        <section class="about section" id="about">
+            <p class="eyebrow">GET TO KNOW ME</p>
+            <h2>About Me</h2>
+            <p>
+                I'm a software engineering student who enjoys
+                solving problems and building websites. My goal
+                is to become a skilled full-stack developer.
+            </p>
+        </section>
+
+        <section class="skills section" id="skills">
+            <p class="eyebrow">WHAT I'M LEARNING</p>
+            <h2>My Skills</h2>
+
+            <div class="skill-list">
+                <div class="skill">HTML</div>
+                <div class="skill">CSS</div>
+                <div class="skill">JavaScript</div>
+                <div class="skill">Git & GitHub</div>
+            </div>
+        </section>
+
+        
+<section class="projects section" id="projects">
+    <p class="eyebrow">MY RECENT WORK</p>
+    <h2>My Projects</h2>
+    <p class="projects-intro">
+        Here are some projects I'm building as I develop my skills.
+    </p>
+
+    <div class="project-grid">
+
+        
+<article class="project-card">
+  <div class="project-icon">📊</div>
+
+  <h3>Trading Lot Size Calculator</h3>
+
+  <p>
+    A calculator that estimates position size
+    based on account balance, risk percentage,
+    and stop-loss distance.
+  </p>
+
+  <div class="project-tags">
+    <span>HTML</span>
+    <span>CSS</span>
+    <span>JavaScript</span>
+  </div>
+
+  <div class="project-actions">
+    <a
+      href="https://github.com/kebekakibo/lot-size-calculator"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="project-link"
+    >
+      View Code ↗
+    </a>
+git config --global user.name "Your Name"
+git config --global user.email "your-email@example.com"
+    <a
+      href="projects/lot-size-calculator/learn.html"
+      class="project-link"
+    >
+      Live Demo →
+    </a>
+  </div>
+</article>
+
+
+        <article class="project-card">
+            <div class="project-icon">✓</div>
+            <h3>To-Do List</h3>
+            <p>
+                A simple task manager for organizing daily tasks
+                and tracking completed work.
+            </p>
+            <div class="project-tags">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+            </div>
+            <a href="#contact" class="project-link">View Project →</a>
+        </article>
+
+        <article class="project-card">
+            <div class="project-icon">💻</div>
+            <h3>Personal Portfolio</h3>
+            <p>
+                My personal website to introduce myself and
+                showcase my web development projects.
+            </p>
+            <div class="project-tags">
+                <span>HTML</span>
+                <span>CSS</span>
+            </div>
+            <a href="#home" class="project-link">View Project →</a>
+        </article>
+
+    </div>
+</section>
+
+
+        
+<section id="contact" class="section">
+  <h2>Contact Me</h2>
+
+  <p class="contact-intro">
+    Have a question or want to work together?
+    Send me a message.
+  </p>
+
+  <form id="contact-form" class="contact-form">
+    <div class="form-group">
+      <label for="name">Your name</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        placeholder="Enter your name"
+        required
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email address</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="you@example.com"
+        required
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="message">Your message</label>
+      <textarea
+        id="message"
+        name="message"
+        placeholder="Write your message..."
+        required
+      ></textarea>
+    </div>
+
+    <button type="submit" class="btn primary">
+      Send Message
+    </button>
+
+    <p id="form-status" role="status" aria-live="polite"></p>
+  </form>
+</section>
+
+    </main>
+
+    <footer>
+        <p>&copy; <span id="year"></span> MyPortfolio. Built by me.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
