@@ -39,7 +39,7 @@
             <div class="hero-content">
                 <p class="greeting">HELLO, Welcome to My Developer Portfolio</p>
 
-                <h1>I'm a <span>Web Developer</span> — Welcome to My Portfolio!</h1>
+                <h1>I'm a <span>Web Developer</span></h1>
 
                 <p class="description">
                     I build clean, useful and responsive websites.
@@ -60,15 +60,32 @@
             </div>
         </section>
 
-        <section class="about section" id="about">
-            <p class="eyebrow">GET TO KNOW ME</p>
-            <h2>About Me</h2>
-            <p>
-                I'm a software engineering student who enjoys
-                solving problems and building websites. My goal
-                is to become a skilled full-stack developer.
-            </p>
-        </section>
+        
+<section id="about" class="about">
+    <p class="eyebrow">GET TO KNOW ME</p>
+
+    <h2>About Me</h2>
+
+    <p class="about-description">
+        I'm an aspiring web developer passionate about
+        building useful, modern, and responsive websites.
+        I'm currently improving my skills in HTML, CSS,
+        and JavaScript by creating real projects.
+    </p>
+
+    <p class="about-description">
+        My goal is to become a full-stack developer,
+        solve real-world problems, and keep learning
+        through practice and experience.
+    </p>
+
+    <div class="about-skills">
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>JavaScript</span>
+        <span>Problem Solving</span>
+    </div>
+</section>
 
         <section class="skills section" id="skills">
             <p class="eyebrow">WHAT I'M LEARNING</p>
@@ -93,40 +110,45 @@
     <div class="project-grid">
 
         
+
 <article class="project-card">
-  <div class="project-icon">📊</div>
+    <div class="project-icon">📊</div>
 
-  <h3>Trading Lot Size Calculator</h3>
+    <p class="project-status">PERSONAL PROJECT</p>
 
-  <p>
-    A calculator that estimates position size
-    based on account balance, risk percentage,
-    and stop-loss distance.
-  </p>
+    <h3>Trading Lot Size Calculator</h3>
 
-  <div class="project-tags">
-    <span>HTML</span>
-    <span>CSS</span>
-    <span>JavaScript</span>
-  </div>
+    <p class="project-description">
+        A forex risk-management tool that estimates
+        position size based on account balance,
+        risk percentage, and stop-loss distance.
+    </p>
 
-  <div class="project-actions">
+    <div class="project-tags">
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>JavaScript</span>
+    </div>
+
+    
+<div class="project-actions">
     <a
-      href="https://github.com/kebekakibo/lot-size-calculator"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="project-link"
+        href="projects/lot-size-calculator/index.html"
+        class="project-link primary"
     >
-      View Code ↗
+        Live Demo →
     </a>
 
     <a
-      href="projects/lot-size-calculator/index.html"
-      class="project-link"
+        href="https://github.com/kebekakibo/lot-size-calculator"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="project-link secondary"
     >
-      Live Demo →
+        View Code ↗
     </a>
-  </div>
+</div>
+
 </article>
 
 
@@ -190,7 +212,7 @@
         type="email"
         id="email"
         name="email"
-        placeholder="you@example.com"
+        placeholder="kebekamulgeta@gmail.com"
         required
       >
     </div>
@@ -214,6 +236,28 @@
 </section>
 
     </main>
+
+    
+<footer class="site-footer">
+    <p>Designed and built by me.</p>
+
+    <div class="footer-links">
+        <a
+            href="https://github.com/kebekakibo"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            GitHub ↗
+        </a>
+
+        <a href="#home">Back to Top ↑</a>
+    </div>
+
+    <p class="copyright">
+        © 2026 My Portfolio. All rights reserved.
+    </p>
+</footer>
+
 
     <footer>
         <p>&copy; <span id="year"></span> MyPortfolio. Built by me.</p>
