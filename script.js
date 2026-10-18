@@ -46,18 +46,19 @@ contactForm.addEventListener("submit", function (event) {
 async function loadPortfolioProjects() {
     const grid = document.querySelector(".project-grid");
 
-    if (!grid) {
-        return;
+if (!grid) {
+    return;
+}
+
+try {
+    const response = await fetch(
+        "https://portfolio-backend-089l.onrender.com/api/projects"
+    );
+
+    if (!response.ok) {
+        throw new Error("HTTP error: " + response.status);
     }
 
-    try {
-        const response = await fetch(
-            "http://localhost:3000/api/projects"
-        );
-
-        if (!response.ok) {
-            throw new Error("HTTP error: " + response.status);
-        }
 
         const projects = await response.json();
         const fragment = document.createDocumentFragment();
