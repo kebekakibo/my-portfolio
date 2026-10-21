@@ -24,10 +24,11 @@ navMenu.querySelectorAll("a").forEach(function (link) {
 });
 
 
+
 const contactForm = document.getElementById("contact-form");
 const formStatus = document.getElementById("form-status");
 
-contactForm.addEventListener("submit", function (event) {
+contactForm.addEventListener("submit", async function (event) {
   event.preventDefault();
 
   if (!contactForm.checkValidity()) {
@@ -36,104 +37,56 @@ contactForm.addEventListener("submit", function (event) {
   }
 
   const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const message = document.getElementById("message").value.trim();
 
-  formStatus.textContent =
-    `Thanks, ${name}! Your form works, but the message has not been sent.`;
+  const submitButton = contactForm.querySelector(
+    'button[type="submit"]'
+  );
 
-  contactForm.reset();
-});
+  submitButton.disabled = true;
+  submitButton.textContent = "Sending...";
+  formStatus.textContent = "";
 
-async function loadPortfolioProjects() {
-    const grid = document.querySelector(".project-grid");
-
-if (!grid) {
-    return;
-}
-
-try {
+  try {
     const response = await fetch(
-        "https://portfolio-backend-089l.onrender.com/api/projects"
+      "https://portfolio-backend-089l.onrender.com/api/contacts",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          name: name,
+          email: email,
+          message: message
+        })
+      }
     );
 
+    const data = await response.json();
+
     if (!response.ok) {
-        throw new Error("HTTP error: " + response.status);
+      throw new Error(
+        data.error || "Unable to send your message."
+      );
     }
 
+    formStatus.textContent =
+      `Thanks, ${name}! Your message was sent successfully.`;
 
-        const projects = await response.json();
-        const fragment = document.createDocumentFragment();
+    contactForm.reset();
 
-        projects.forEach(project => {
-            const card = document.createElement("article");
-            card.className = "project-card";
+  } catch (error) {
+    console.error("Contact form error:", error);
 
-            const icon = document.createElement("div");
-            icon.className = "project-icon";
-            icon.textContent = project.icon;
-            card.appendChild(icon);
-
-            if (project.status) {
-                const status = document.createElement("p");
-                status.className = "project-status";
-                status.textContent = project.status;
-                card.appendChild(status);
-            }
-
-            const title = document.createElement("h3");
-            title.textContent = project.name;
-            card.appendChild(title);
-
-            const description = document.createElement("p");
-            description.className = "project-description";
-            description.textContent = project.description;
-            card.appendChild(description);
-
-            const tags = document.createElement("div");
-            tags.className = "project-tags";
-
-            project.tags.forEach(tag => {
-                const span = document.createElement("span");
-                span.textContent = tag;
-                tags.appendChild(span);
-            });
-
-            card.appendChild(tags);
-
-            const actions = document.createElement("div");
-            actions.className = "project-actions";
-
-            project.actions.forEach(action => {
-                const link = document.createElement("a");
-                link.href = action.href;
-                link.className = action.className;
-                link.textContent = action.text;
-
-                if (action.target) {
-                    link.target = action.target;
-                    link.rel = "noopener noreferrer";
-                }
-
-                if (action.ariaLabel) {
-                    link.setAttribute("aria-label", action.ariaLabel);
-                }
-
-                actions.appendChild(link);
-            });
-
-            card.appendChild(actions);
-            fragment.appendChild(card);
-        });
-
-        // Replace the existing cards only after loading succeeds.
-        grid.replaceChildren(fragment);
-
-    } catch (error) {
-        // Keep the original HTML cards if the backend is unavailable.
-        console.error("Could not load portfolio projects:", error);
-    }
-}
-
-document.addEventListener("DOMContentLoaded", loadPortfolioProjects);
+    formStatus.textContent =
+      "Sorry, your message could not be sent. Please try again.";
+  } finally {
+    submitButton.disabled = false;
+    submitButton.textContent = "Send Message";
+  }
+});
 
 
 const projectsApiUrl =
@@ -217,17 +170,17 @@ async function loadProjects() {
 
             projectGrid.appendChild(card);
         });
+    
     } catch (error) {
         console.error("Error loading projects:", error);
 
-        projectGrid.replaceChildren();
-
-        const errorMessage = document.createElement("p");
-        errorMessage.textContent =
-            "Projects could not load. Please try again later.";
-
-        projectGrid.appendChild(errorMessage);
+        if (message) {
+            message.textContent =
+                "Projects could not load. Please try again later.";
+        }
     }
 }
 
 loadProjects();
+
+
